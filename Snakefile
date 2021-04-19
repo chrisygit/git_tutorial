@@ -141,7 +141,11 @@ rule align_to_genome:
         # This gives the base name for the genome index, i.e. "intermediate/some_id"
         # rather than "intermediate/some_id.*.bt2"
         indexBase = input.index[0].replace('.1.bt2','')
+<<<<<<< HEAD
         shell("bowtie2 --very-sensitive-local -x " + indexBase + " -U {input.fastq} > {output} 2> {log}")
+=======
+        shell("bowtie2 --very-sensitive-local --trim5 5 -x " + indexBase + " -U {input.fastq} > {output} 2> {log}")
+>>>>>>> trimming
 
 rule sort_bam:
     """
